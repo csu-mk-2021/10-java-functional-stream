@@ -17,6 +17,7 @@ public class Task02Main {
         if (n <1 || n > 16)
             throw new IllegalArgumentException();
         int count = (int) Math.pow(2, n);
+
         return IntStream.iterate(0, x -> x + 1)
                 .map(g -> getGrayCode(g % count));
     }
