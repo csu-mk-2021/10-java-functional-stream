@@ -3,6 +3,7 @@ package com.example.task03;
 import java.util.Comparator;
 import java.util.function.BiConsumer;
 import java.util.stream.Stream;
+import java.util.Iterator;
 
 public class Task03Main {
 
@@ -23,5 +24,17 @@ public class Task03Main {
             BiConsumer<? super T, ? super T> minMaxConsumer) {
 
         // your implementation here
+        Iterator<? extends T> iterator = stream.iterator();
+        T cur = iterator.hasNext() ? iterator.next() : null;
+        T min = cur; T max = cur;
+        while (iterator.hasNext()){
+            cur = iterator.next();
+            if(order.compare(cur,min) < 0)
+                min = cur;
+            else if(order.compare(cur,max) > 0)
+                max = cur;
+        }
+
+        minMaxConsumer.accept(min,max);
     }
 }
