@@ -1,6 +1,5 @@
 package com.example.task05;
 
-import com.example.task05.ITests;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -20,7 +19,7 @@ public class TestsImpl implements ITests {
         int randomSalary = 100;  // Некоторое случайное целое положительное число. Можете выбрать его самостоятельно.
 
         // Создание списка из трех почтовых сообщений.
-        MailMessage firstMessage = new MailMessage(
+        MainMessage firstMessage = new MainMessage(
                 "Robert Howard",
                 "H.P. Lovecraft",
                 "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
@@ -30,19 +29,19 @@ public class TestsImpl implements ITests {
         assert firstMessage.getTo().equals("H.P. Lovecraft") : "Wrong firstMessage to address";
         assert firstMessage.getContent().endsWith("Howard!") : "Wrong firstMessage content ending";
 
-        MailMessage secondMessage = new MailMessage(
+        MainMessage secondMessage = new MainMessage(
                 "Jonathan Nolan",
                 "Christopher Nolan",
                 "Брат, почему все так хвалят только тебя, когда практически все сценарии написал я. Так не честно!"
         );
 
-        MailMessage thirdMessage = new MailMessage(
+        MainMessage thirdMessage = new MainMessage(
                 "Stephen Hawking",
                 "Christopher Nolan",
                 "Я так и не понял Интерстеллар."
         );
 
-        List<MailMessage> messages = Arrays.asList(
+        List<MainMessage> messages = Arrays.asList(
                 firstMessage, secondMessage, thirdMessage
         );
 
